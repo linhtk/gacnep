@@ -34,6 +34,10 @@ switch ($flag) {
         $sanpham = 'active';
         $xtpl_header->assign('sanpham', $sanpham);
         break;
+    case 'nghiencuu':
+        $nghiencuu = 'active';
+        $xtpl_header->assign('nghiencuu', $nghiencuu);
+        break;
 }
 if($flag=='index'){
     $xtpl_header->parse("HEADER.slide");

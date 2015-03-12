@@ -4,7 +4,7 @@
 	$host = 'localhost';
 	$dbname = 'gacnep';
 	$dbuser = 'root';
-	$dbpwd = 'a1b2c3d4@';
+	$dbpwd = '';
 	$TABLE_PREFIX='tg_';
 	define('TABLE_PREFIX','tg_');
 	

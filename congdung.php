@@ -14,14 +14,15 @@ include "includes/right.php";
 
 $xtpl = new XTemplate("templates/phongbenh.html");
 ///tin tuc
-$sql_tin = "SELECT md5(news_id) AS news_id, news_title, news_brief, news_image FROM tg_news_cate WHERE cate_id = 114 ORDER BY news_id ASC LIMIT 0,4";
+$id = $_REQUEST['id'];
+if ($id != ''){
+    $id = $id;
+} else {
+    $id = 126;
+}
+$sql_tin = "SELECT md5(news_id) AS news_id, news_title, news_brief, news_image FROM tg_news_cate WHERE cate_id = '$id' ORDER BY news_id ASC LIMIT 0,4";
 $rs_tin = execSQL($sql_tin);
-$i = 0;
 while ($row_tin = mysql_fetch_assoc($rs_tin)) {
-    if ($i == 0) {
-        $row_tin['class'] = 'active';
-    }
-    $i++;
     $row_tin['news_content'] = get_news_content($row_tin['news_id']);
     if ($row_tin['news_image']) {
         if (file_exists("upload/news/" . $row_tin['news_image'])) {
@@ -34,8 +35,6 @@ while ($row_tin = mysql_fetch_assoc($rs_tin)) {
     }
     $xtpl->assign("tin", $row_tin);
     $xtpl->parse("MAIN.tin");
-    $xtpl->assign('content', $row_tin);
-    $xtpl->parse("MAIN.CONTENT");
 }
 
 

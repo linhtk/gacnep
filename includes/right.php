@@ -1,7 +1,23 @@
 <?php
 
 $xtpl_right = new XTemplate("templates/right.html");
-
+/////tab san pham
+if($flag=='sanpham'){
+    $sp = "SELECT product_id, product_name FROM tg_product WHERE product_id <> '1'";
+    $rssp = execSQL($sp);
+    while($rowsp = mysql_fetch_assoc($rssp)){
+        $xtpl_right->assign("TOPSP",$rowsp);
+        $xtpl_right->parse("RIGHT.TOPSP");
+    }
+}
+if($flag == 'phong'){
+    $cd = "SELECT category_id, category_name FROM tg_category WHERE category_parent = 114 ORDER BY category_position ASC";
+    $rscd = execSQL($cd);
+    while($rowcd = mysql_fetch_assoc($rscd)){
+        $xtpl_right->assign("CD",$rowcd);
+        $xtpl_right->parse("RIGHT.CD");
+    }
+}
 /////news
 $right_news = "SELECT md5(news_id) AS news_id, news_title, news_image, news_brief FROM tg_news WHERE news_is_hot = '1' AND news_active='1' ORDER BY news_date LIMIT 0 , 4";
 $rs_right_news = execSQL($right_news);

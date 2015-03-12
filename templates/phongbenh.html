@@ -1,47 +1,42 @@
 <!-- BEGIN:MAIN -->
 {header_tostring}
 <div class="block-breadcrumb">
-    <div class="container">
-        <ol class="breadcrumb">
-            <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Trang chủ</a></li>
-            <li class="active">Công dụng của quả Gấc</li>
-        </ol>
-    </div>
+    <!--<div class="container">-->
+        <!--<ol class="breadcrumb">-->
+            <!--<li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Trang chủ</a></li>-->
+            <!--<li class="active">Công dụng của quả Gấc</li>-->
+        <!--</ol>-->
+    <!--</div>-->
 </div>
 <!--Main content-->
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <div class="">
-                <div class="gac-tab" role="tabpanel">
+            <div class="news">
+                <!-- BEGIN: tin -->
+                <div class="media item-news">
+                    <h4 class="media-heading"><a href="chitiet.php?id={tin.news_id}"><span class="glyphicon glyphicon-play-circle"></span> {tin.news_title}</a></h4>
+                    <a class="pull-left" href="chitiet.php?id={tin.news_id}">
+                        {tin.news_image}
+                    </a>
+                    <div class="media-body">
 
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-pills nav-justified" role="tablist">
-                        <!-- BEGIN:tin -->
-                        <li role="presentation" class="{tin.class}"><a href="#{tin.news_id}" aria-controls="{tin.news_id}" role="tab" data-toggle="tab">{tin.news_title}</a></li>
-                        <!-- END:tin -->
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <!-- BEGIN:CONTENT -->
-                        <div role="tabpanel" class="tab-pane {content.class}" id="{content.news_id}">
-                            {content.news_content}
-                        </div>
-                        <!-- END:CONTENT -->
-                        
+                        <p>{tin.news_brief}</p>
+                        <a href="chitiet.php?id={tin.news_id}" class="readmore pull-right">Chi tiết</a>
                     </div>
-
                 </div>
-                {benh_tostring}
+                <!-- END: tin -->
+
             </div>
-            
+            <hr>
+            {benh_tostring}
         </div>
         <!--Sidebar right-->
-        {right_tostring} 
+        {right_tostring}
         <!--End sidebar right-->
-    </div> 
+    </div>
     <!--End row-->
-</div> 
+</div>
 <!--End container-->
 {footer_tostring}
 <!-- END:MAIN -->

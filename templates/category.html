@@ -2,12 +2,12 @@
 {header_tostring}
 <!-- breadcrumb -->
 <div class="block-breadcrumb">
-    <div class="container">
-        <ol class="breadcrumb">
-            <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Trang chủ</a></li>
-            <li class="active">Sản phẩm</li>
-        </ol>
-    </div>
+    <!--<div class="container">-->
+        <!--<ol class="breadcrumb">-->
+            <!--<li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Trang chủ</a></li>-->
+            <!--<li class="active">Sản phẩm</li>-->
+        <!--</ol>-->
+    <!--</div>-->
 </div>
 
 
@@ -21,17 +21,16 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-pills nav-justified" role="tablist">
                         <!-- BEGIN:SP -->
-                        <li role="presentation" class="{SP.class}"><a href="#{SP.product_id}" aria-controls="{SP.product_id}" role="tab" data-toggle="tab">{SP.product_name}</a></li>
+                        <li role="presentation" class="active"><a href="#{SP.product_id}" aria-controls="{SP.product_id}" role="tab" data-toggle="tab">{SP.product_name}</a></li>
                         <!-- END:SP -->
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <!-- BEGIN:SPTAB -->
-                        <div role="tabpanel" class="tab-pane {SP.class}" id="{SP.product_id}">
+                        <div role="tabpanel" class="tab-pane active" id="{SP.product_id}">
                             <p class="text-center">{SP.product_image}</p>
                             {SP.product_desc}
                         </div>
-                        <!-- END:SPTAB -->
+
                         
                     </div>
 
