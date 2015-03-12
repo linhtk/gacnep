@@ -1,0 +1,108 @@
+<!-- BEGIN:MAIN -->
+{header_tostring}
+<div class="block-breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Trang chủ</a></li>
+            <li class="active">Câu hỏi thường gặp</li>
+        </ol>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+            <div class="content">
+                <div class="question">
+                    <!--<div class="img-banner-question"><img src="img/dontknow.jpg" alt=""></div>-->
+                    <p class="text-center" style="margin-bottom: 30px;">
+                        <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Đặt câu hỏi</a>
+                    </p>
+                    <!-- BEGIN: msg -->
+                    <div class="row alert alert-warning alert-dismissible" id="alert_msg">
+                        {msg}
+                    </div>
+                    <!-- END: msg -->
+                    <!-- Button trigger modal -->
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form action="" method="post" name="frmMsg" id="frmMsg">
+                                    <input type="hidden" name="frmAction" value="action"/>
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Đặt câu hỏi</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row alert alert-warning alert-dismissible" role="alert" id="errblock" style="display:none;">
+                                            <button type="button" class="close" data-dismiss="alert" aria-lable="close" ><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <div 
+                                            <div class="form-group" id="msg_title">
+                                                <label>Tiêu đề câu hỏi</label>
+                                                <input type="text" class="form-control" name="title" id="title" />
+                                            </div>
+                                            <div class="form-group" id="msg_name">
+                                                <label>Tên người hỏi</label>
+                                                <input type="text" class="form-control" name="name" id="name" />
+                                            </div>
+                                            <div class="form-group" id="msg_content">
+                                                <label>Nội dung câu hỏi</label>
+                                                <textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                                            <button type="button" class="btn btn-primary" id="sendMsg" onclick="checksendMsg();">Gửi câu hỏi</button>
+                                        </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BEGIN: faq -->
+                    <div class="media" style="margin-top: 0;" >
+                        <a class="pull-left" href="#">
+                            {faq.img}
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading" style="color: #f9062f;">{faq.support_title}</h4>
+                            <p><span class="glyphicon glyphicon-calendar"></span> {faq.support_date}</p>
+                            <p>{faq.content}</p>
+                            <p class="author text-right">{faq.support_name}</p>
+                            <!-- BEGIN: answer -->
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img src="admin/images/home_77.jpg" alt="" width="50">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading" style="color: #f9062f;">Trả lời</h4>
+                                    <p><span class="glyphicon glyphicon-calendar"></span> {faq.support_date}</p>
+                                    <p>{faq.answer}</p>
+                                    <p class="author text-right">
+                                        <a style="color: #f9062f;" href="chitiethoidap.php?id={id}">chi tiết</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- END: answer -->
+                        </div>
+                        <hr>
+                    </div>
+                    <!-- END: faq -->
+                    {page}
+
+                </div>
+            </div>
+            <hr>
+            {benh_tostring}
+        </div>
+        <!--Sidebar right-->
+        {right_tostring} 
+        <!--End sidebar right-->
+    </div> 
+    <!--End row-->
+</div> 
+
+{footer_tostring}
+<!-- END:MAIN -->

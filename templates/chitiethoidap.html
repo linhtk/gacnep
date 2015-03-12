@@ -1,0 +1,53 @@
+<!-- BEGIN:MAIN -->
+{header_tostring}
+<div class="block-breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Trang chủ</a></li>
+            <li><a href="hoidap.php">Hỏi đáp</a></li>
+            <li class="active">Chi tiết hỏi đáp</li>
+        </ol>
+    </div>
+</div>
+<!--Main content-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="content">
+                    <div class="media-body">
+                        <h4 class="media-heading" style="color: #f9062f;">{row.support_title}</h4>
+                        <p><span class="glyphicon glyphicon-calendar"></span> {row.created_date}</p>
+                        <p>{row.content}</p>
+                        <p class="author text-right">{row.support_name}</p>
+                        <!-- BEGIN: answer -->
+                        <hr>
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="img/hoidap.jpg" alt="Image">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading" style="color: #f9062f;">Trả lời</h4>
+                                <p><span class="glyphicon glyphicon-calendar"></span> {support_date}</p>
+                                <p>{answer}</p>
+
+                            </div>
+                        </div>
+                        <!-- END: answer -->
+                        <hr />
+                        <h4 class="media-heading" style="color: #f9062f;">Câu hỏi khác: </h4>
+                            <ul class="list-unstyled">
+                                <!-- BEGIN: other -->
+                                <li><a href="chitiethoidap.php?id={row1.support_id}">{row1.support_title}</a></li>
+                                <!-- END: other -->
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            {right_tostring}
+        </div>
+
+    </div>
+    <a href="#" class="scrollToTop"><i class="glyphicon glyphicon-circle-arrow-up"></i></a>
+{footer_tostring}
+<!-- END:MAIN -->

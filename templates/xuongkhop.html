@@ -1,0 +1,54 @@
+<!-- BEGIN:MAIN -->
+{header_tostring}
+<!-- breadcrumb -->
+<div class="block-breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Trang chủ</a></li>
+            <li class="active">Gấc - Quả đến từ thiên đường</li>
+        </ol>
+    </div>
+</div>
+
+
+<!--Main content-->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+            <h3 class="content-title">Gấc Việt Nam</h3>
+            <div class="">
+                <div class="gac-tab" role="tabpanel">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-pills nav-justified" role="tablist">
+                        <!-- BEGIN:tin -->
+                        <li role="presentation" class="{tin.class}"><a href="#{tin.news_id}" aria-controls="{tin.news_id}" role="tab" data-toggle="tab">{tin.news_title}</a></li>
+                        <!-- END:tin -->
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <!-- BEGIN:CONTENT -->
+                        <div role="tabpanel" class="tab-pane {content.class}" id="{content.news_id}">
+<!--                            <p class="text-center">{content.news_image}</p>-->
+                            {content.news_content}
+                        </div>
+                        <!-- END:CONTENT -->
+                        
+                    </div>
+
+                </div>
+            </div>
+            <hr>
+            {benh_tostring}
+
+
+        </div>
+        <!--Sidebar right-->
+        {right_tostring}
+        <!--End sidebar right-->
+    </div> 
+    <!--End row-->
+</div> 
+<!--End container-->
+{footer_tostring}
+<!-- END:MAIN -->

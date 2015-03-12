@@ -1,0 +1,209 @@
+<!-- BEGIN:MAIN -->
+{header_tostring}
+
+<div class="Sgac">
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <!-- BEGIN:row_home -->
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gac1">
+                <div>
+                    <a href="gac.php">{row_home.image}
+					</a>
+                    <p>{row_home.news_brief}</p>
+                </div>
+
+            </div>
+            <!-- END: row_home -->
+        </div>
+
+        <hr>
+    </div><!-- /container -->
+</div> 
+<!--End Sgac-->
+
+<!--Công dụng của Gấc-->
+<div class="container congdunggac">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="title" style="margin-bottom: 20px;">
+                <img src="images/ico_congdung.png" alt="" class="pull-left" />
+                <a href="http://gacnep.vn/congdung.php"><h4>Công dụng của Gấc</h4></a>
+            </div>
+        </div>
+        <!-- BEGIN: KT -->
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 item">
+            <a href="chitiet.php?id={news_kt.news_id}">{news_kt.image}</a>
+            <div class="caption-sm">
+                <a href="chitiet.php?id={news_kt.news_id}">{news_kt.news_title}</a>
+            </div>
+            <div class="congdunggac-dest">
+                {news_kt.news_brief}
+            </div>
+        </div>
+        <!-- END: KT -->
+
+    </div>
+    <hr>
+</div> 
+<!--End cong dung-->
+
+<!--share - FAQ-->
+<div class="container block-share-faq">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+            <div class="title">
+                <img src="images/ico_share.png" alt="" class="pull-left" />
+                <a href="http://gacnep.vn/chiase.php"><h4>Chia sẻ</h4></a>
+                <div class="clearfix"></div>
+            </div>
+
+
+
+            <div id="carousel-share" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <!-- BEGIN: CN -->
+                    <div class="item{CN.class}">
+                        <!-- BEGIN:image -->
+                        <img src="upload/share/{image}" alt="" class="pull-left share-img"/>
+                        <!-- END:image -->
+                        <p class="share-p"><a href="chitietchiase.php?id={CN.id}">{CN.content}</a></p>
+                        <div class="pull-right" style="color: #c0c0c0">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {CN.email}
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {CN.createDate}
+                        </div>
+                    </div>
+                    <!-- END: CN -->
+
+                </div>
+                <!-- Indicators -->
+                <ol class="carousel-indicators hidden-xs">
+                    <li data-target="#carousel-share" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-share" data-slide-to="1" class=""></li>
+                </ol>
+
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+            <div class="title">
+                <img src="images/ico_hoidap.png" alt="" class="pull-left" />
+                <a href="http://gacnep.vn/hoidap.php"><h4>Câu hỏi thường gặp</h4></a>
+            </div>
+
+            <div id="carousel-faq" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <!-- BEGIN:HD -->
+                    <div class="item{HD.class}">
+                        <!--<img src="images/share.jpg" alt="" class="pull-left share-img"/>-->
+                        <div>
+                            <a href="chitiethoidap.php?id={HD.support_id}"><h5>{HD.cauhoi}</h5></a>
+                            <strong style="color: #e51e39;">Trả lời:</strong>
+                            <p>{HD.traloi}</p>
+                        </div>
+
+                    </div>
+                    <!-- END: HD -->
+
+                </div>
+                <!-- Indicators -->
+                <ol class="carousel-indicators hidden-xs">
+                    <li data-target="#carousel-faq" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-faq" data-slide-to="1" class=""></li>
+                </ol>
+                <div class="pull-right">
+                    <a class="btn btn-danger" href="hoidap.php" >Gửi câu hỏi của bạn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+<!--End Share - FAQ-->
+
+<!--QUANG CAO-->
+<div class="container block-adv">
+    <div class="row">
+        <!-- BEGIN:QC -->
+        <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
+            <img src="upload/adv/{QC.adv_image}" alt="" class="img-responsive"/>
+        </div>
+        <!-- END:QC -->
+        <!--        <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
+                    <img src="images/banner-qc.jpg" alt="" class="img-responsive"/>
+                </div>-->
+    </div>
+    <hr>
+</div>
+<!--End QUANG CAO-->
+
+
+<!--News - Videos-->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 block-featured-news">
+            <div class="title">
+                <img src="images/ico_news.png" alt="" class="pull-left" />
+                <a href="http://gacnep.vn/tintuc.php"><h4>Tin tức - Sự kiện</h4></a>
+                <div class="clearfix"></div>
+            </div>
+            <div class="row">
+
+                <!-- BEGIN:BT1 -->
+                <div class="col-md-6">
+                    <div class="thumbnail">
+                        <h3><a href="chitiet.php?id={BT1.news_id}">{BT1.news_title}</a></h3>
+                        <div class="datetime"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {BT1.news_date}</div>
+                        <a href="chitiet.php?id={BT1.news_id}">{BT1.image}</a>
+                        <div class="caption">
+                            <p>{BT1.news_brief}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END:BT1 -->
+                <div class="col-md-6" style="padding-top: 10px;">
+                    <!-- BEGIN:BT2 -->
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="chitiet.php?id={BT2.news_id}">{BT2.image}</a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="chitiet.php?id={BT2.news_id}">{BT2.news_title}</a></h4>
+                            <div class="datetime"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {BT2.news_date}</div>
+                        </div>
+                    </div>
+                    <!-- END:BT2 -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 block-video">
+            <div class="title">
+                <img src="images/ico_video.png" alt="" class="pull-left" />
+                <h4>Video Clips</h4>
+            </div>
+            <div class="video">
+                <div class='embed-container'>
+                    <!-- BEGIN:video -->
+                    <iframe src='{video}' frameborder='0' allowfullscreen></iframe>
+                    <!-- END:video -->
+                </div>
+            </div>
+<!--            <ul class="video-list">
+                <li><a href="#"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> TVC B Record Plus: Sản phẩm tăng cường sinh lực</a> </li>
+                <li><a href="#"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Review: B Record Plus cảm nhận</a> </li>
+                <li><a href="#"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Giáo sư Luis Degamard nói về sản phẩm B Record Plus</a></li>
+            </ul>-->
+        </div>
+    </div>
+    <hr>
+</div>
+<!--End News - Videos-->
+
+
+
+{footer_tostring}
+
+<!-- END:MAIN -->

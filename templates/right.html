@@ -1,0 +1,86 @@
+<!-- BEGIN:RIGHT -->
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 sidebar">
+    <div class="widget block-news-highlight">
+        <div class="w-header"><h3>TIN TỨC NỔI BẬT</h3></div>
+        <div class="w-content">
+            <!-- BEGIN:right_news -->
+            <div class="media">
+                <div class="media-left">
+                    <a href="chitiet.php?id={right_news.news_id}">
+                        {right_news.news_image}
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="chitiet.php?id={right_news.news_id}">{right_news.news_title}</a></h4>
+                    <strong>Mô tả:</strong> {right_news.news_brief}
+                </div>
+            </div>
+            <!-- END:right_news -->
+
+        </div>
+    </div>
+    <!--End block-news-highlight-->
+
+    <div class="widget block-voted-products">
+        <div class="w-header"><h3>BÌNH CHỌN SẢN PHẨM</h3></div>
+        <div class="w-content">
+            <!-- BEGIN: SP -->
+            <div class="media">
+                <div class="media-left">
+                    <a href="chitietsanpham.php?id={SP.product_id}">
+                        {SP.product_image}
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="chitietsanpham.php?id={SP.product_id}">{SP.product_name}</a></h4>
+                    <strong>Đánh giá:</strong> {SP.rate} lượt thích<br/>
+                    <strong>Mô tả:</strong> {SP.product_desc}
+                </div>
+            </div>
+            <!-- END: SP -->
+
+        </div>
+    </div>
+    <!--End block-voted-products-->
+    
+    <div class="widget w-splienquan">
+        <div class="col-md-12" style="margin: 20px 0;">
+            
+        </div>
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+			<!-- BEGIN:RIGHTQC -->
+                <div class="item {RIGHTQC.class}">
+                    <a href="{RIGHTQC.adv_link}"><img src="upload/adv/{RIGHTQC.adv_image}" alt="" class="img-responsive" /></a>
+                </div>
+			<!-- END:RIGHTQC -->
+            </div>
+        </div>
+    </div>
+    
+
+    <!--video-->
+    <div class="widget w-video">
+        <div class="title">
+            <img src="images/ico_video.png" alt="" class="pull-left" />
+            <h4>Video clip</h4>
+        </div>
+        <div class="video">
+            <div class='embed-container'>
+                <!-- BEGIN:video -->
+                <iframe src='{video}' frameborder='0' allowfullscreen></iframe>
+                <!-- END:video -->
+            </div>
+        </div>
+        <!--                        <ul class="video-list">
+                                    <li><a href="#"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> TVC B Record Plus: Sản phẩm tăng cường sinh lực</a> </li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Review: B Record Plus cảm nhận</a> </li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Giáo sư Luis Degamard nói về sản phẩm B Record</a></li>
+                                </ul>-->
+
+    </div>
+    <!--end video-->
+</div>
+
+<!-- END:RIGHT -->

@@ -1,0 +1,51 @@
+<!-- BEGIN:MAIN -->
+{header_tostring}
+<div class="block-breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Trang chủ</a></li>
+            <li><a href="tintuc.php"> Tin tức - sự kiện</a></li>
+            <li class="active">Chi tiết tin tức</li>
+        </ol>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="content">
+                <div class="news">
+                    <h4><a href="#">{row.news_title}</a></h4>
+                    <!--                    <p><b>{row.news_brief}</b></p>
+                                        <p>{row.news_image}</p>-->
+                    <p>{row.news_content}</p>
+                </div>
+                <hr />
+
+                <h3 style="color: #f9062f;">Tin liên quan</h3>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 other-news">
+                    <!-- BEGIN: other -->
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="chitiet.php?id={row1.news_id}">
+                                {row1.news_image}
+                            </a>
+                        </div>
+                        <div class="media-body magtop5">
+                            <h4 class="media-heading"><a href="chitiet.php?id={row1.news_id}">{row1.news_title}</a></h4>
+                            {row1.news_brief}
+                        </div>
+                    </div>
+                    <!-- END: other -->
+                </div>
+
+            </div>
+        </div>
+
+        {right_tostring}
+    </div>
+
+</div>
+<a href="#" class="scrollToTop"><i class="glyphicon glyphicon-circle-arrow-up"></i></a>
+{footer_tostring}
+<!-- END:MAIN -->

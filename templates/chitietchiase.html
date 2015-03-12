@@ -1,0 +1,39 @@
+<!-- BEGIN:MAIN -->
+{header_tostring}
+<div class="block-breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Trang chủ</a></li>
+            <li><a href="chiase.php"> Chia sẻ</a></li>
+            <li class="active">Chi tiết chia sẻ</li>
+        </ol>
+    </div>
+</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="content chitietchiase">
+                    <div class="media-body">
+                        <h4 class="media-heading">{row.fullname}</h4>
+                        <div><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {row.email}</div>
+                        <p>{row.content}</p>
+                        <p class="author text-right">Địa chỉ: {row.address}</p>
+                        <p class="author text-right">Điện thoại: {row.phone}</p>
+                        <hr />
+                        <h4 class="media-heading">Chia sẻ khác: </h4>
+                            <ul class="list-unstyled">
+                                <!-- BEGIN: other -->
+                                <li><a href="chitietchiase.php?id={row1.id}">{row1.fullname} ( {row1.email} )</a></li>
+                                <!-- END: other -->
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            {right_tostring}
+        </div>
+
+    </div>
+    <a href="#" class="scrollToTop"><i class="glyphicon glyphicon-circle-arrow-up"></i></a>
+{footer_tostring}
+<!-- END:MAIN -->
