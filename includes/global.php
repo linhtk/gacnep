@@ -127,7 +127,7 @@ function pagenavigator($page, $row_total, $page_size, $pagegroup_size,$class,$ur
 				</script>';
 		$str.='<form name="frm_navigator" method="post" action="">';
 		$str.='<input type="hidden" name="page" id="page" value=""/>';
-		$str.='<ul class="pagination">';
+		$str.='<ul class="pagination pull-right">';
 		if ($end_page>$pagegroup_size)
 			$start_group = $pagegroup_size;
 		else

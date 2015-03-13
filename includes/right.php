@@ -2,10 +2,13 @@
 
 $xtpl_right = new XTemplate("templates/right.html");
 /////tab san pham
+$i=0;
 if($flag=='sanpham'){
     $sp = "SELECT product_id, product_name FROM tg_product WHERE product_id <> '1'";
     $rssp = execSQL($sp);
     while($rowsp = mysql_fetch_assoc($rssp)){
+        $i++;
+        $rowsp['i'] = $i;
         $xtpl_right->assign("TOPSP",$rowsp);
         $xtpl_right->parse("RIGHT.TOPSP");
     }
@@ -14,6 +17,8 @@ if($flag == 'phong'){
     $cd = "SELECT category_id, category_name FROM tg_category WHERE category_parent = 114 ORDER BY category_position ASC";
     $rscd = execSQL($cd);
     while($rowcd = mysql_fetch_assoc($rscd)){
+        $i++;
+        $rowcd['i'] = $i;
         $xtpl_right->assign("CD",$rowcd);
         $xtpl_right->parse("RIGHT.CD");
     }
