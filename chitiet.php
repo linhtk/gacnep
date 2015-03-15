@@ -7,6 +7,7 @@ include "includes/connection.php";
 include "includes/function.php";
 include "includes/function_page.php";
 include "includes/footer.php";
+
 $flag = READ_SESSION('flag');
 include "includes/header.php";
 include "includes/right.php";
