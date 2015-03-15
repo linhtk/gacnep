@@ -8,6 +8,7 @@
 	include "includes/footer.php";
 	include "includes/benh.php";
 	$flag = 'tin';
+        WRITE_SESSION('flag', $flag);
 	include "includes/header.php";
 	include "includes/right.php";
 	 

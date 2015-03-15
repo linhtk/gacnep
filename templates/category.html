@@ -19,16 +19,18 @@
                 <div class="gac-tab" role="tabpanel">
 
                     <!-- Nav tabs -->
-                    <ul class="nav nav-pills nav-justified" role="tablist">
+                    
                         <!-- BEGIN:SP -->
-                        <li role="presentation" class="active"><a href="#{SP.product_id}" aria-controls="{SP.product_id}" role="tab" data-toggle="tab">{SP.product_name}</a></li>
+                        <h3 class="sp-title">{SP.product_name}</h3>
                         <!-- END:SP -->
-                    </ul>
+                   
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="{SP.product_id}">
                             <p class="text-center">{SP.product_image}</p>
                             {SP.product_desc}
+							<hr>
+							<div class="fb-comments" data-href="http://gacnep.vn/sanpham.php?id={SP.product_id}" data-numposts="5" data-colorscheme="light"></div>
                         </div>
 
                         

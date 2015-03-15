@@ -156,7 +156,7 @@ function pagenavigator($page, $row_total, $page_size, $pagegroup_size,$class,$ur
 		if ($end_page<$page_total)
 			//$str.= '<a  class='.$class.' style="text-decoration: none;" href="'.$url.$andpage.($end_page+1).'">[Next '.$pagegroup_size.' pages]</a>';
 			$str.= '&nbsp;<a  class="'.$class.'Page" style="text-decoration: none;" href="#" onclick="navigate('.($end_page+1).')">[Next '.$pagegroup_size.' pages]</a>';
-		$str.='</uh></form>';
+		$str.='</ul></form><div class="clearfix"></div>';
 		return $str;
 	}	
 }

@@ -31,7 +31,14 @@
     </head>
 
     <body>
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
         <nav class="navbar navbar-default">
             <div class="container" style="height: 117px;">
                 <div class="navbar-header">
@@ -50,17 +57,17 @@
                 <div class="pull-right slogan_lg hidden-xs col-lg-5 col-md-5 col-sm-7">
                     <div>Gấc - Quà tặng vô giá từ thiên nhiên!</div>
                     <div class="col-lg-8 col-md-8 col-sm-8" style="margin:5px 0 0 -15px;">
-                    <form action="" class="form-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control input-sm" placeholder="Tìm kiếm">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default btn-sm" type="button"><i class="glyphicon glyphicon-search"></i></button>
-                            </span>
-                        </div><!-- /input-group -->
-                    </form>
+                        <form action="" class="form-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm" placeholder="Tìm kiếm">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-sm" type="button"><i class="glyphicon glyphicon-search"></i></button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </form>
+                    </div>
                 </div>
-                </div>
-                
+
             </div>
 
             <div id="navbar" class="navbar-collapse collapse nav-main">
@@ -68,11 +75,21 @@
                     <ul class="nav navbar-nav">
                         <li class="{index}"><a href="index.php"><span style="font-size:16px;" class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
                         <!--<li><a href="#">Giới thiệu</a></li>-->
-                        <li class="{benh}"><a href="gac.php">Gấc Việt Nam<span class="hidden-sm"></span></a></li>
-                        <li class="{phong}"><a href="congdung.php">Công dụng</a></li>
+                        <li class="{benh}"><a href="gac.php">{gac}<span class="hidden-sm"></span></a></li>
+                        <li class="dropdown {phong}">
+                            <a href="congdung.php" class="dropdown-toggle disabled js-activated" data-toggle="dropdown" role="button" aria-expanded="false">{congdung} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <!-- BEGIN:sub -->
+                                <li><a href="congdung.php?id={sub.category_id}">{sub.category_name}</a></li>
+                                <!-- END:sub -->
+<!--                                <li><a href="#">Bổ như...Gấc</a></li>
+                                <li><a href="#">Đẹp da</a></li>
+                                <li><a href="#">Gấc và những tác dụng bất ngờ bạn có thể không biết</a></li>-->
+                            </ul>
+                        </li>
                         <li class="{sanpham}"><a href="sanpham.php">Sản phẩm</a></li>
-                        <li class="{nghiencuu}"><a href="nghiencuu.php">Nghiên cứu</a></li>
-                        <li class="{tin}"><a href="tintuc.php">Tin tức<span class="hidden-sm"></span></a></li>
+                        <li class="{nghiencuu}"><a href="nghiencuu.php">{nghiencuu}</a></li>
+                        <li class="{tin}"><a href="tintuc.php">{tintuc}</a></li>
                         <li class="{hoidap}"><a href="hoidap.php">Câu hỏi thường gặp</a></li>
                         <li class="{share}"><a href="chiase.php">Chia sẻ</a></li>
                         <li class="{lienhe}"><a href="lienhe.php">Liên hệ</a></li>

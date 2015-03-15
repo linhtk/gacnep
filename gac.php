@@ -19,7 +19,7 @@ $xtpl = new XTemplate("templates/xuongkhop.html");
 //$limit = ($show_result ? $show_result : 4);
 //$offset = ($page - 1) * $limit;
 //$LIMIT = " LIMIT $offset,$limit";
-$sql_tin = "SELECT md5(news_id) AS news_id, news_title, news_brief, news_image FROM tg_news_cate WHERE cate_id = 125 ORDER BY news_id ASC LIMIT 0,3";
+$sql_tin = "SELECT md5(news_id) AS news_id, news_title, news_brief, news_image FROM tg_news_cate WHERE cate_id = 113 ORDER BY news_id ASC LIMIT 0,4";
 //$rs_tin1 = execSQL($sql_tin);
 //$row_total = mysql_num_rows($rs_tin1);
 //$sql_tin.=$LIMIT;
