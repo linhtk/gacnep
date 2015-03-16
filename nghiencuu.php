@@ -10,7 +10,7 @@
 	$flag = 'nghiencuu';
 	include "includes/header.php";
 	include "includes/right.php";
-	 
+	WRITE_SESSION('flag', $flag);
 	$xtpl = new XTemplate ("templates/nghiencuu.html");
 ///tin tuc
 	$page=$_POST['page']?$_POST['page']:1;
@@ -18,7 +18,7 @@
 	$limit=($show_result?$show_result:4);
 	$offset=($page-1)*$limit;
 	$LIMIT=" LIMIT $offset,$limit";
-	$sql_tin = "SELECT md5(news_id) AS news_id, news_title, news_image, news_brief FROM tg_news_cate WHERE cate_id=117";
+	$sql_tin = "SELECT md5(news_id) AS news_id, news_title, news_image, news_brief FROM tg_news_cate WHERE cate_id=130";
 	$rs_tin1 = execSQL($sql_tin);
 	$row_total=mysql_num_rows($rs_tin1);
 	$sql_tin.=$LIMIT;

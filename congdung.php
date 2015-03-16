@@ -9,6 +9,7 @@ include "includes/function_page.php";
 include "includes/footer.php";
 include "includes/benh.php";
 $flag = 'phong';
+WRITE_SESSION('flag', $flag);
 include "includes/header.php";
 include "includes/right.php";
 

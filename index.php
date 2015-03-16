@@ -10,6 +10,7 @@ include "includes/function_page.php";
 include "includes/footer.php";
 //include "includes/left.php";
 $flag = 'index';
+session_unset();
 include "includes/header.php";
 //include "includes/right.php";
 
@@ -32,7 +33,7 @@ while ($row_home = mysql_fetch_assoc($rs_home)) {
 $sql_news_kt = "SELECT md5(news_id) AS news_id, news_title, news_brief, news_image FROM tg_news_cate WHERE cate_id IN (126, 127, 128, 129) ORDER BY news_id DESC LIMIT 0,4";
 $rs_news_kt = execSQL($sql_news_kt);
 while ($row_news_kt = mysql_fetch_assoc($rs_news_kt)) {
-    $row_news_kt['news_brief'] = sub_string(strip_tags($row_news_kt['news_brief']), 100, true);
+$row_news_kt['news_brief'] = sub_string(strip_tags($row_news_kt['news_brief']), 100, true);
     if (($row_news_kt['news_image'] != '') & (file_exists("upload/news/" . $row_news_kt['news_image']))) {
         $row_news_kt['image'] = '<img alt="" src="upload/news/' . $row_news_kt['news_image'] . '" class="img-responsive" alt="' . $row_news_kt['news_title'] . '" />';
     } else {
@@ -113,12 +114,16 @@ while ($row_sp = mysql_fetch_assoc($rs_sp)) {
     $xtpl->parse("MAIN.SP");
 }
 //hoi dap
-$sql_hd = "SELECT * FROM tg_support WHERE answer != '' ORDER BY support_id DESC LIMIT 0,2";
+$sql_hd = "SELECT * FROM tg_support WHERE is_home = '1' ORDER BY support_id DESC LIMIT 0,2";
 $rs_hd = execSQL($sql_hd);
 $u = 0;
 while ($row_hd = mysql_fetch_assoc($rs_hd)) {
     if ($u == 0) {
         $row_hd['class'] = ' active';
+    }
+    if($row_hd['support_img']){
+        $xtpl->assign("image", $row_hd['support_img']);
+        $xtpl->parse("MAIN.HD.image");
     }
     $u++;
     $row_hd['traloi'] = sub_string($row_hd['answer'], 100, true);

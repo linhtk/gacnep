@@ -11,6 +11,7 @@ if ($action == "Action") {
     $support_title = $_POST['support_title'];
     $support_mobile = $_POST['support_mobile'];
     $support_email = $_POST['support_email'];
+    $is_home = $_POST['is_home'];
     $support_img = $_FILES['support_img'];
     $hidden_support_img = $_POST['hidden_support_img'];
     $support_created_date = date("Y-m-d");
@@ -67,40 +68,43 @@ if ($action == "Action") {
         if ($edit_id) {
 
             $sql = "UPDATE " . TABLE_PREFIX . "support
-						SET 
-                                                    support_name='$support_name'
-                                                    ,support_mobile='$support_mobile'
-                                                    ,support_title='$support_title'
-                                                    ,support_email='$support_email'
-                                                    ,support_created_date='$support_created_date'
-                                                    ,content='$content'
-                                                    ,answer='$answer'
-                                                    ,support_img='$support_img'
-						WHERE md5(support_id)='$edit_id'";
+                    SET 
+                        support_name='$support_name'
+                        ,support_mobile='$support_mobile'
+                        ,support_title='$support_title'
+                        ,support_email='$support_email'
+                        ,support_created_date='$support_created_date'
+                        ,content='$content'
+                        ,answer='$answer'
+                        ,support_img='$support_img'
+                        ,is_home='$is_home'
+                    WHERE md5(support_id)='$edit_id'";
             //echo $sql; die();
             execSQL($sql);
             redir('index.php?mod=_support');
             exit();
         } else {
             $sql = "INSERT INTO " . TABLE_PREFIX . "support(
-						support_name
-						,support_title
-						,support_mobile
-						,support_email
-						,support_created_date
-						,content
-						,answer
-                                                ,support_img
-						) VALUES(
-						'$support_name'
-						,$support_title
-						,'$support_mobile'
-						,'$support_email'
-						,'$support_created_date'
-						,'$content'
-						,'$answer'
-                                                ,'$support_img'
-						)";
+                        support_name
+                        ,support_title
+                        ,support_mobile
+                        ,support_email
+                        ,support_created_date
+                        ,content
+                        ,answer
+                        ,support_img
+                        ,is_home
+                    ) VALUES(
+                        '$support_name'
+                        ,$support_title
+                        ,'$support_mobile'
+                        ,'$support_email'
+                        ,'$support_created_date'
+                        ,'$content'
+                        ,'$answer'
+                        ,'$support_img'
+                        ,'$is_home'
+                    )";
             execSQL($sql);
             redir('index.php?mod=_support');
             exit();
@@ -109,15 +113,16 @@ if ($action == "Action") {
 } else {
     if ($edit_id) {
         $sql = "SELECT support_name
-						,support_title
-						,support_mobile
-						,support_email
-						,content
-						,answer
-                                                ,support_img
-						,md5(support_id) AS edit_id	
-					FROM " . TABLE_PREFIX . "support
-				 WHERE md5(support_id)='$edit_id'";
+                    ,support_title
+                    ,support_mobile
+                    ,support_email
+                    ,content
+                    ,answer
+                    ,support_img
+                    ,is_home
+                    ,md5(support_id) AS edit_id	
+                FROM " . TABLE_PREFIX . "support
+                WHERE md5(support_id)='$edit_id'";
         $row = recordset($sql);
         $support_name = $row['support_name'];
         $support_title = $row['support_title'];
@@ -127,6 +132,7 @@ if ($action == "Action") {
         $content = $row['content'];
         $answer = $row['answer'];
         $edit_id = $row['edit_id'];
+        $is_home = $row['is_home'];
     }
 }
 
@@ -135,13 +141,20 @@ $input_support_img = gen_input_file('support_img',50,'','a_text');
 $input_support_title = gen_input_text('support_title', $support_title, 50, 255, '', 'a_text');
 $input_support_mobile = gen_input_text('support_mobile', $support_mobile, 50, 255, '', 'a_text');
 $input_support_email = gen_input_text('support_email', $support_email, 50, 255, '', 'a_text');
+$input_is_home = gen_input_checkbox('is_home',1,$is_home,'','');
 $input_content = gen_input_FCKEditor('content', $content);
 $input_answer = gen_input_FCKEditor('answer', $answer);
 $input_hidden_edit_id = gen_input_hidden('edit_id', $edit_id);
 $input_hidden_page_image = gen_input_hidden('hidden_support_img', $support_img);
+if($support_img!='')
+{
+    $image_viewer	= '&nbsp;<a href="#" onclick="openwin(\'image_viewer.php?path=support&img='.$support_img.'\');">'.COM_VIEW_IMAGE.'</a>';
+    $xtpl->assign('image_viewer',$image_viewer);
+}
 
 $xtpl->assign('input_support_name', $input_support_name);
 $xtpl->assign('input_support_title', $input_support_title);
+$xtpl->assign('input_is_home', $input_is_home);
 $xtpl->assign('input_support_mobile', $input_support_mobile);
 $xtpl->assign('input_support_img', $input_support_img);
 $xtpl->assign('input_support_email', $input_support_email);
