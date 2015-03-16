@@ -25,7 +25,7 @@
 	$rs_tin=execSQL($sql_tin);
 	$pages=pagenavigator($page, $row_total, $limit, $pagegroup_size,'',$PHP_SELF) ;
 	while ($row_tin = mysql_fetch_assoc($rs_tin)){
-		$row_tin['content'] = sub_string($row_tin['content'], 200);
+		$row_tin['brief'] = sub_string($row_tin['brief'], 200);
 		if($row_tin['news_image'])
 		{
 			if(file_exists("upload/share/".$row_tin['news_image']))

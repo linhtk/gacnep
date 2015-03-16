@@ -26,20 +26,40 @@ while ($row_home = mysql_fetch_assoc($rs_home)) {
     } else {
         $row_home['image'] = '<img src="images/gac1.png" alt="" />';
     }
+    $row_home['news_brief'] = sub_string($row_home['news_brief'], 100, true);
     $xtpl->assign("row_home", $row_home);
     $xtpl->parse("MAIN.row_home");
 }
 //cong dung
-$sql_news_kt = "SELECT md5(news_id) AS news_id, news_title, news_brief, news_image FROM tg_news_cate WHERE cate_id IN (126, 127, 128, 129) ORDER BY news_id DESC LIMIT 0,4";
-$rs_news_kt = execSQL($sql_news_kt);
-while ($row_news_kt = mysql_fetch_assoc($rs_news_kt)) {
-$row_news_kt['news_brief'] = sub_string(strip_tags($row_news_kt['news_brief']), 100, true);
-    if (($row_news_kt['news_image'] != '') & (file_exists("upload/news/" . $row_news_kt['news_image']))) {
-        $row_news_kt['image'] = '<img alt="" src="upload/news/' . $row_news_kt['news_image'] . '" class="img-responsive" alt="' . $row_news_kt['news_title'] . '" />';
+//$sql_news_kt = "SELECT md5(news_id) AS news_id, news_title, news_brief, news_image FROM tg_news_cate WHERE cate_id IN (126, 127, 128, 129) ORDER BY news_id DESC LIMIT 0,4";
+//$rs_news_kt = execSQL($sql_news_kt);
+//while ($row_news_kt = mysql_fetch_assoc($rs_news_kt)) {
+//$row_news_kt['news_brief'] = sub_string(strip_tags($row_news_kt['news_brief']), 100, true);
+//    if (($row_news_kt['news_image'] != '') & (file_exists("upload/news/" . $row_news_kt['news_image']))) {
+//        $row_news_kt['image'] = '<img alt="" src="upload/news/' . $row_news_kt['news_image'] . '" class="img-responsive" alt="' . $row_news_kt['news_title'] . '" />';
+//    } else {
+//        $row_news_kt['image'] = '<img src="images/congdung1.jpg" class="img-responsive" alt="" />';
+//    }
+//    $xtpl->assign("news_kt", $row_news_kt);
+//    $xtpl->parse("MAIN.KT");
+//}
+$sql_kt = "SELECT category_id, category_name FROM tg_category WHERE category_parent = 114";
+$rs_kt = execSQL($sql_kt);
+$num = 1;
+while ($row_kt = mysql_fetch_assoc($rs_kt)) {
+    $sql_kt_hot = "SELECT n.news_image, md5(n.news_id) AS id, n.news_brief FROM tg_news AS n INNER JOIN tg_news_cate AS nc WHERE n.news_id = nc.news_id AND nc.cate_id = " . $row_kt['category_id'] . " AND n.news_is_hot = 1 ORDER BY n.news_id DESC LIMIT 0,1";
+    $rs_kt_hot = execSQL($sql_kt_hot);
+    $row_kt_hot = mysql_fetch_assoc($rs_kt_hot);
+
+    $kt_hot_img = $row_kt_hot['news_image'];
+    if (($kt_hot_img != '') && (file_exists("upload/news/" . $kt_hot_img))) {
+        $row_kt['image'] = '<a href="congdung.php?id=' . $row_kt['category_id'] . '"><img alt="" src="upload/news/' . $kt_hot_img . '" class="img-responsive" /></a>';
     } else {
-        $row_news_kt['image'] = '<img src="images/congdung1.jpg" class="img-responsive" alt="" />';
+        $row_kt['image'] = '<img alt="" src="upload/product/' . $num . '.jpg" class="img-responsive" />';
     }
-    $xtpl->assign("news_kt", $row_news_kt);
+    $row_kt['news_brief'] = sub_string($row_kt_hot['news_brief'], 80, true);
+
+    $xtpl->assign("KT", $row_kt);
     $xtpl->parse("MAIN.KT");
 }
 

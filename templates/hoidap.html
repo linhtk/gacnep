@@ -61,31 +61,15 @@
                         </div>
                     </div>
                     <!-- BEGIN: faq -->
-                    <div class="media" style="margin-top: 0;" >
-                        <a class="pull-left" href="#">
-                            {faq.img}
-                        </a>
+                    <div class="media item-news">
                         <div class="media-body">
-                            <h4 class="media-heading" style="color: #f9062f;">{faq.support_title}</h4>
+                            <h4 class="media-heading" style="margin-bottom: 2px;"><span class="glyphicon glyphicon-play-circle"></span>&nbsp; <a href="chitiethoidap.php?id={faq.support_id}">{faq.support_title}</a></h4>
                             <p><span class="glyphicon glyphicon-calendar"></span> {faq.support_date}</p>
                             <p>{faq.content}</p>
                             <p class="author text-right">{faq.support_name}</p>
-                            <!-- BEGIN: answer -->
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img src="admin/images/home_77.jpg" alt="" width="50">
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading" style="color: #f9062f;">Trả lời</h4>
-                                    <p><span class="glyphicon glyphicon-calendar"></span> {faq.support_date}</p>
-                                    <p>{faq.answer}</p>
-                                    <p class="author text-right">
-                                        <a style="color: #f9062f;" href="chitiethoidap.php?id={id}">chi tiết</a>
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <!-- END: answer -->
+                            <p class="author text-right">
+                                <a class="readmore pull-right" href="chitiethoidap.php?id={faq.support_id}">chi tiết</a>
+                            </p>
                         </div>
                         <hr>
                     </div>

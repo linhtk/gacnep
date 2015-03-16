@@ -10,6 +10,7 @@
 		$fullname=$_POST['fullname'];
 		$phone=$_POST['phone'];
 		$email=$_POST['email'];
+        $brief = $_POST['brief'];
         $news_image=$_FILES['news_image'];
 		$address=$_POST['address'];
         $content=$_POST['content'];
@@ -84,6 +85,7 @@
 						SET 
 							fullname='$fullname'
 							,news_image='$news_image'
+							,brief='$brief'
 							,phone='$phone'
 							,email='$email'
 							,content='$content'
@@ -101,6 +103,7 @@
 						,news_image
 						,phone
 						,email
+						,brief
 						,content
 						,address
 						) VALUES(
@@ -108,6 +111,7 @@
 						,'$news_image'
 						,'$phone'
 						,'$email'
+						,'$brief'
 						,'$content'
 						,'$address'
 						)";
@@ -124,6 +128,7 @@
 						,phone
 						,news_image
 						,email
+						,brief
 						,content
 						,address
 						,md5(id) AS edit_id
@@ -134,6 +139,7 @@
             $news_image         = $row['news_image'];
 			$phone 				= $row['phone'];
 			$email 				= $row['email'];
+            $brief              = $row['brief'];
 			$content 				= $row['content'];
             $address 				= $row['address'];
 			$edit_id 				= $row['edit_id'];
@@ -143,6 +149,7 @@
 	
 	$input_fullname			= gen_input_text('fullname',$fullname,50,255,'','a_text');
 	$input_phone			= gen_input_text('phone',$phone,50,255,'','a_text');
+    $input_brief			= gen_input_textarea('brief',$brief,50,10,'','a_text');
 	$input_email			= gen_input_text('email',$email,50,255,'','a_text');
         $input_news_image				= gen_input_file('news_image',50,'','a_text');
     $input_address			= gen_input_text('address',$address,50,255,'','a_text');
@@ -160,6 +167,7 @@
 	$xtpl->assign('input_fullname',$input_fullname);
 	$xtpl->assign('input_phone',$input_phone);
 	$xtpl->assign('input_email',$input_email);
+    $xtpl->assign('input_brief',$input_brief);
 	$xtpl->assign('input_content',$input_content);
     $xtpl->assign('input_address',$input_address);
 	
