@@ -26,6 +26,19 @@
 	$pages=pagenavigator($page, $row_total, $limit, $pagegroup_size,'',$PHP_SELF) ;
 	while ($row_tin = mysql_fetch_assoc($rs_tin)){
 		$row_tin['content'] = sub_string($row_tin['content'], 200);
+		if($row_tin['news_image'])
+		{
+			if(file_exists("upload/share/".$row_tin['news_image']))
+			{
+				$row_tin['news_image'] = '<img src="upload/share/'.$row_tin['news_image'].'" class="img-responsive" width="120" height="89" />';
+			} else 
+			{
+				$row_tin['news_image'] = "";
+			}
+		} else
+		{
+			$row_tin['news_image'] = "";
+		}
 		$xtpl->assign("tin",$row_tin);
 		$xtpl->parse("MAIN.tin");	
 	}

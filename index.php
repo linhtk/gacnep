@@ -29,9 +29,10 @@ while ($row_home = mysql_fetch_assoc($rs_home)) {
     $xtpl->parse("MAIN.row_home");
 }
 //cong dung
-$sql_news_kt = "SELECT md5(news_id) AS news_id, news_title, news_brief, news_image FROM tg_news_cate WHERE cate_id = 114 ORDER BY news_id DESC LIMIT 0,4";
+$sql_news_kt = "SELECT md5(news_id) AS news_id, news_title, news_brief, news_image FROM tg_news_cate WHERE cate_id IN (126, 127, 128, 129) ORDER BY news_id DESC LIMIT 0,4";
 $rs_news_kt = execSQL($sql_news_kt);
 while ($row_news_kt = mysql_fetch_assoc($rs_news_kt)) {
+    $row_news_kt['news_brief'] = sub_string(strip_tags($row_news_kt['news_brief']), 100, true);
     if (($row_news_kt['news_image'] != '') & (file_exists("upload/news/" . $row_news_kt['news_image']))) {
         $row_news_kt['image'] = '<img alt="" src="upload/news/' . $row_news_kt['news_image'] . '" class="img-responsive" alt="' . $row_news_kt['news_title'] . '" />';
     } else {

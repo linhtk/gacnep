@@ -17,7 +17,9 @@
                     <!-- BEGIN:tin -->
                         <div class="media item-news">
                             <h4 class="media-heading" style="margin-bottom: 2px;"><span class="glyphicon glyphicon-play-circle"></span> <a href="chitietchiase.php?id={tin.id}">{tin.fullname}</a></h4>
-                            
+                            <a class="pull-left" href="chitietchiase.php?id={tin.id}">
+                                {tin.news_image}
+                            </a>
                             <div><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {tin.email}</div>
                             <div class="media-body">
                                 <p>{tin.content}</p>
