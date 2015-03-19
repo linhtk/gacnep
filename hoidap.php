@@ -39,10 +39,10 @@ $rs_tin = execSQL($sql);
 $pages = pagenavigator($page, $row_total, $limit, $pagegroup_size, '', $PHP_SELF);
 while ($row = mysql_fetch_assoc($rs_tin)) {
     $row['support_date'] = formatDateFromDatabase($row['support_created_date']);
-    $row['content'] = sub_string($row['content'], 200);
+    $row['content'] = sub_string(strip_tags($row['content']), 200);
     if ($row['answer'] != '') {
         $row['support_date'] = formatDateFromDatabase($row['support_created_date']);
-        $row['answer'] = sub_string($row['answer'], 200);
+        $row['answer'] = sub_string(strip_tags($row['answer']), 200);
         $row['support_id'] = $row['support_id'];
         $xtpl->assign('id', $row['support_id']);
         $xtpl->parse("MAIN.faq.answer");
@@ -57,7 +57,7 @@ while ($row = mysql_fetch_assoc($rs_tin)) {
 }
 
 
-$xtpl->assign("page", $pages);
+$xtpl->assign("pages", $pages);
 $xtpl->assign("header_tostring", $header_tostring);
 $xtpl->assign("footer_tostring", $footer_tostring);
 $xtpl->assign("benh_tostring", $benh_tostring);

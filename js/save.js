@@ -1,25 +1,15 @@
 // JavaScript Document
 function checksave() {
     var fullname = $("#fullname").val();
-    var phoneNumber = $("#phoneNumber").val();
     var address = $("#address").val();
-    var email = $("#email").val();
     var content = $("#content").val();
     var err = 0;
     if (fullname == '') {
         $("#fullname_p").addClass("has-error");
         err = 1;
     }
-    if (phoneNumber == '') {
-        $("#phoneNumber_p").addClass("has-error");
-        err = 1;
-    }
     if (address == '') {
         $("#address_p").addClass("has-error");
-        err = 1;
-    }
-    if (email == '') {
-        $("#email_p").addClass("has-error");
         err = 1;
     }
     if (content == '') {
@@ -88,8 +78,4 @@ function checksavetest(){
     }
     return 0;
 }
-$(document).ready(function(){
-    setTimeout(function () {
-    $("#alert_msg").hide('blind', {}, 500)
-}, 5000);
-});
+

@@ -44,7 +44,7 @@
 	}
 	
 		
-	$xtpl->assign("page",$pages);
+	$xtpl->assign("pages",$pages);
 	$xtpl->assign("header_tostring",$header_tostring);
 	$xtpl->assign("footer_tostring",$footer_tostring);
 	$xtpl->assign("benh_tostring",$benh_tostring);

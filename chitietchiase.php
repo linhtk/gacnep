@@ -6,6 +6,7 @@ error_reporting(0);
 	include "includes/function.php";
 	include "includes/function_page.php";
 	include "includes/footer.php";
+	include "includes/benh.php";
     $flag = 'share';
 	include "includes/header.php";
 	include "includes/right.php";
@@ -27,7 +28,7 @@ error_reporting(0);
     }
 	$xtpl->assign("header_tostring",$header_tostring);
 	$xtpl->assign("footer_tostring",$footer_tostring);
-	//$xtpl->assign("left_tostring",$left_tostring);
+	$xtpl->assign("benh_tostring", $benh_tostring);
 	$xtpl->assign("right_tostring",$right_tostring);
 	//Parse the main body
 	$xtpl->parse("MAIN");

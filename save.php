@@ -12,19 +12,15 @@
 	$xtpl = new XTemplate ("templates/save.html");
 	
 	$fullname = $_POST['fullname'];
-	$phoneNumber = $_POST['phoneNumber'];
-	$email = $_POST['email'];
 	$address = $_POST['address'];
 	$content = $_POST['content'];
 
 	$error = 0;$msg="";
 	if($fullname==''){ $error = 1; $msg .= "Vui lòng điền họ tên <br />";}
-	if($phoneNumber == '') { $error = 1;  $msg .= "Vui lòng điền số điện thoại <br />"; }
-	if($email == '') { $error = 1; $msg .= "Vui lòng điền email <br />"; }
 	if($address == '') { $error = 1; $msg .= "Vui lòng điền địa chỉ <br />"; }
 	if($content == '') { $error = 1; $msg .= "Vui lòng điền nội dung"; }
 	if($error == 0) {
-		$sql = " INSERT INTO tg_share(fullname, address, phone, email, content) VALUES ('$fullname', '$address', '$phoneNumber', '$email', '$content')";
+		$sql = " INSERT INTO tg_share(fullname, address, content) VALUES ('$fullname', '$address', '$content')";
 		execSQL($sql);
 		redir('chiase.php');
 	} else {

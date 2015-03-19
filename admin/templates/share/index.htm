@@ -27,8 +27,6 @@ function openwin(url,w_title,width,height)
           <thead>
           <tr><td width="10" class="cols-action">{COM_LBL_NO}</td>
             <td class="cols-index">Họ Tên</td>
-            <td class="cols-index">Email</td>
-            <td class="cols-index">Mobile</td>
             <td class="cols-index">Địa chỉ</td>
             <td width="100" class="cols-index">{COM_LBL_ACTION}</td>
           </thead>
@@ -39,8 +37,6 @@ function openwin(url,w_title,width,height)
           <tr onmouseover="this.className='tr-mouserOver';" onmouseout="this.className='tr-mouserOut'">
             <td class="cols-content">{LIST.no}&nbsp;</td>
             <td class="cols-content">{LIST.fullname}&nbsp;</td>
-            <td class="cols-content">{LIST.email}&nbsp;</td>
-            <td class="cols-content">{LIST.phone}&nbsp;</td>
             <td class="cols-content">{LIST.address}&nbsp;</td>
             <td class="cols-content" valign="top"><a href="#" onclick="Update('{LIST.edit_id}')"><img src="images/images_17.jpg" width="16" border="0"></a>&nbsp;<a href="#" onclick="Delete('{LIST.edit_id}')"><img src="images/images_19.jpg" width="18" border="0"></a>&nbsp;
               <input type="checkbox" name="check_delete[]" value="{LIST.edit_id}"></td>

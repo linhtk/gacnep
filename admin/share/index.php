@@ -11,8 +11,6 @@
 	$sql="SELECT md5(id) AS edit_id
 				,fullname
 				,address
-				,phone
-				,email
 				FROM ".TABLE_PREFIX."share";
 				
 	$rs=execSQL($sql);

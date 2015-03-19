@@ -8,9 +8,7 @@
 	if($action=="Action")
 	{
 		$fullname=$_POST['fullname'];
-		$phone=$_POST['phone'];
-		$email=$_POST['email'];
-        $brief = $_POST['brief'];
+		$brief = $_POST['brief'];
         $news_image=$_FILES['news_image'];
 		$address=$_POST['address'];
         $content=$_POST['content'];
@@ -20,10 +18,10 @@
 		{
 			$error.=sprintf(ERR_NULL,"Họ tên");
 		}
-		if($phone=="")
-		{
-			$error.=sprintf(ERR_NULL,"Số điện thoại");
-		}
+		//if($phone=="")
+		//{
+		//	$error.=sprintf(ERR_NULL,"Số điện thoại");
+		//}
 		if($content=="")
 		{
 			$error.=sprintf(ERR_NULL,"Nội dung");
@@ -86,8 +84,6 @@
 							fullname='$fullname'
 							,news_image='$news_image'
 							,brief='$brief'
-							,phone='$phone'
-							,email='$email'
 							,content='$content'
 							,address='$address'
 						WHERE md5(id)='$edit_id'";
@@ -101,16 +97,12 @@
 				$sql="INSERT INTO ".TABLE_PREFIX."share(
 						fullname
 						,news_image
-						,phone
-						,email
 						,brief
 						,content
 						,address
 						) VALUES(
 						'$fullname'
 						,'$news_image'
-						,'$phone'
-						,'$email'
 						,'$brief'
 						,'$content'
 						,'$address'
@@ -125,9 +117,7 @@
 	{
 		if($edit_id){
 			$sql="SELECT fullname
-						,phone
 						,news_image
-						,email
 						,brief
 						,content
 						,address
@@ -137,8 +127,6 @@
 			$row=recordset($sql);
 			$fullname					= $row['fullname'];
             $news_image         = $row['news_image'];
-			$phone 				= $row['phone'];
-			$email 				= $row['email'];
             $brief              = $row['brief'];
 			$content 				= $row['content'];
             $address 				= $row['address'];
@@ -148,9 +136,7 @@
 	}
 	
 	$input_fullname			= gen_input_text('fullname',$fullname,50,255,'','a_text');
-	$input_phone			= gen_input_text('phone',$phone,50,255,'','a_text');
     $input_brief			= gen_input_textarea('brief',$brief,50,10,'','a_text');
-	$input_email			= gen_input_text('email',$email,50,255,'','a_text');
         $input_news_image				= gen_input_file('news_image',50,'','a_text');
     $input_address			= gen_input_text('address',$address,50,255,'','a_text');
 	$input_content				= gen_input_FCKEditor('content',$content);

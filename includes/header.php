@@ -35,8 +35,8 @@ switch ($flag) {
         $xtpl_header->assign('sanpham', $sanpham);
         break;
     case 'nghiencuu':
-        $nghiencuu = 'active';
-        $xtpl_header->assign('nghiencuu', $nghiencuu);
+        $cnghiencuu = 'active';
+        $xtpl_header->assign('cnghiencuu', $cnghiencuu);
         break;
 }
 $sql_sub = "SELECT * FROM tg_category WHERE category_parent = 114 ORDER BY category_position ASC";

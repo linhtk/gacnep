@@ -14,7 +14,7 @@ while ($row_sp = mysql_fetch_assoc($rs_sp)) {
         $row_sp['class'] = 'active ';
     }
     $j++;
-    $row_sp['product_desc'] = sub_string($row_sp['product_desc'], 50, true);
+    $row_sp['product_desc'] = sub_string(strip_tags($row_sp['product_desc']), 50, true);
     $xtpl_footer->assign('SP', $row_sp);
     $xtpl_footer->parse("FOOTER.SP");
 }
